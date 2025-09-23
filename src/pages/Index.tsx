@@ -47,11 +47,10 @@ const Index = () => {
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Discover Cultural Heritage Like <span className="gradient-text">Never Before</span>
               </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+  Revolutionary platform combining AR, AI, and gamification for immersive cultural experiences
+</p>
 
-                Revolutionary platform combining AR, AI, and gamification for immersive cultural experiences
-                Revolutionary platform combining AR, AI, and gamification for immersive cultural experiences
-              </p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
