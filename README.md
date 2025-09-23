@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CultureVerse - AR Cultural Heritage Platform
 
 ## Project info
@@ -63,3 +64,6 @@ You can deploy this project using Vercel, Netlify, or your preferred static host
 ## Can I connect a custom domain?
 
 Yes! Most hosting providers allow you to connect a custom domain. Refer to your hosting provider's documentation for instructions.
+=======
+
+>>>>>>> 63891759c5c0ec28bf1d45e341bf8eb3894b48a6

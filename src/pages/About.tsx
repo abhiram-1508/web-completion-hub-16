@@ -51,7 +51,11 @@ const About = () => {
     },
     {
       name: "Raj Patel",
+<<<<<<< HEAD
       role: "AR Technology Lead",
+=======
+      role: "AR/VR Technology Lead",
+>>>>>>> 63891759c5c0ec28bf1d45e341bf8eb3894b48a6
       description: "Former Google engineer specializing in immersive technology applications"
     },
     {
@@ -74,7 +78,11 @@ const About = () => {
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-12">
               We are revolutionizing how people experience and connect with cultural heritage 
+<<<<<<< HEAD
               through cutting-edge AR technology and personalized learning experiences.
+=======
+              through cutting-edge AR/VR technology and personalized learning experiences.
+>>>>>>> 63891759c5c0ec28bf1d45e341bf8eb3894b48a6
             </p>
           </div>
         </section>

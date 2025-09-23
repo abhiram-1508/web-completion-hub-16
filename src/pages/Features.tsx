@@ -10,8 +10,13 @@ const Features = () => {
   const features = [
     {
       icon: Smartphone,
+<<<<<<< HEAD
       title: "AR Virtual Tours",
       description: "Explore monuments, festivals, and museums interactively from anywhere in the world using cutting-edge augmented reality technology.",
+=======
+      title: "AR/VR Virtual Tours",
+      description: "Explore monuments, festivals, and museums interactively from anywhere in the world using cutting-edge augmented and virtual reality technology.",
+>>>>>>> 63891759c5c0ec28bf1d45e341bf8eb3894b48a6
       image: arToursImage,
       color: "cultural-teal",
       details: [
@@ -79,7 +84,11 @@ const Features = () => {
               Platform <span className="gradient-text">Features</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-12">
+<<<<<<< HEAD
               Discover how our revolutionary platform combines AR, AI, and gamification 
+=======
+              Discover how our revolutionary platform combines AR/VR, AI, and gamification 
+>>>>>>> 63891759c5c0ec28bf1d45e341bf8eb3894b48a6
               to create unprecedented cultural experiences
             </p>
           </div>
