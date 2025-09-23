@@ -13,21 +13,24 @@ const UttarPradesh = () => {
       description: "One of the Seven Wonders of the World, this ivory-white marble mausoleum is a symbol of eternal love",
       significance: "UNESCO World Heritage Site and finest example of Mughal architecture",
       visitTime: "3-4 hours",
-      bestTime: "Sunrise or sunset for magical lighting"
+      bestTime: "Sunrise or sunset for magical lighting",
+  image: "/src/assets/Tajmahal.jpeg.jpg"
     },
     {
       name: "Varanasi Ghats",
       description: "Sacred ghats along the Ganges River, one of the oldest continuously inhabited cities in the world",
       significance: "Holiest city in Hinduism and center of spiritual learning",
       visitTime: "Full day",
-      bestTime: "Early morning for Ganga Aarti ceremony"
+      bestTime: "Early morning for Ganga Aarti ceremony",
+  image: "/src/assets/varanasi ghats.jpeg.jpg"
     },
     {
       name: "Fatehpur Sikri",
       description: "Former Mughal capital built by Emperor Akbar, showcasing blend of Hindu and Islamic architecture",
       significance: "UNESCO World Heritage Site representing Mughal architectural excellence",
       visitTime: "2-3 hours",
-      bestTime: "Morning to avoid afternoon heat"
+      bestTime: "Morning to avoid afternoon heat",
+  image: "/src/assets/Fatehpur Sikri.jpeg.jpg"
     }
   ];
 
@@ -75,7 +78,7 @@ const UttarPradesh = () => {
               </div>
               <div className="relative">
                 <img 
-                  src={ancientTemple} 
+                  src="/src/assets/uttar pradesh.png"
                   alt="Uttar Pradesh Heritage"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />
@@ -108,11 +111,14 @@ const UttarPradesh = () => {
                         </h3>
                         <Camera className="h-6 w-6 text-primary" />
                       </div>
-                      
+                      <img
+                        src={place.image}
+                        alt={place.name + ' image'}
+                        className="w-full h-40 object-cover rounded-xl mb-4"
+                      />
                       <p className="text-muted-foreground leading-relaxed">
                         {place.description}
                       </p>
-                      
                       <div className="bg-muted/30 p-4 rounded-lg space-y-3">
                         <div>
                           <span className="font-semibold text-primary">Significance: </span>

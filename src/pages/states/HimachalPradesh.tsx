@@ -13,28 +13,32 @@ const HimachalPradesh = () => {
       description: "Former British summer capital, known for colonial architecture and scenic hill station beauty",
       significance: "UNESCO World Heritage Railway and British colonial heritage",
       visitTime: "2-3 days",
-      bestTime: "April to June, September to November"
+      bestTime: "April to June, September to November",
+  image: "/src/assets/shimla.jpeg.jpg"
     },
     {
       name: "Manali",
       description: "Popular hill station in the Himalayas, gateway to adventure sports and mountain culture",
       significance: "Adventure tourism hub and gateway to Lahaul-Spiti",
       visitTime: "3-4 days",
-      bestTime: "October to February for snow, March to June for pleasant weather"
+      bestTime: "October to February for snow, March to June for pleasant weather",
+  image: "/src/assets/manali.jpeg.jpg"
     },
     {
       name: "Rohtang Pass",
       description: "High mountain pass connecting Manali to Lahaul and Spiti valleys, offering spectacular views",
       significance: "Strategic mountain pass and popular tourist destination",
       visitTime: "Half day",
-      bestTime: "May to October (road accessible)"
+      bestTime: "May to October (road accessible)",
+  image: "/src/assets/Rohtang pass.jpeg.jpg"
     },
     {
       name: "Dharamshala",
       description: "Home to the Dalai Lama and Tibetan government-in-exile, center of Tibetan Buddhism",
       significance: "International center for Tibetan Buddhism and culture",
       visitTime: "2-3 days",
-      bestTime: "March to June, September to November"
+      bestTime: "March to June, September to November",
+  image: "/src/assets/Dharamshala.jpeg.jpg"
     }
   ];
 
@@ -82,7 +86,7 @@ const HimachalPradesh = () => {
               </div>
               <div className="relative">
                 <img 
-                  src={culturalArt} 
+                  src="/src/assets/himachal pradesh.png"
                   alt="Himachal Pradesh Heritage"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />
@@ -115,11 +119,14 @@ const HimachalPradesh = () => {
                         </h3>
                         <Camera className="h-6 w-6 text-primary" />
                       </div>
-                      
+                      <img
+                        src={place.image}
+                        alt={place.name + ' image'}
+                        className="w-full h-40 object-cover rounded-xl mb-4"
+                      />
                       <p className="text-muted-foreground leading-relaxed">
                         {place.description}
                       </p>
-                      
                       <div className="bg-muted/30 p-4 rounded-lg space-y-3">
                         <div>
                           <span className="font-semibold text-primary">Significance: </span>

@@ -13,28 +13,32 @@ const WestBengal = () => {
       description: "Cultural capital of India, known for literature, arts, and colonial architecture",
       significance: "City of Joy and former British colonial capital",
       visitTime: "3-4 days",
-      bestTime: "October to March"
+      bestTime: "October to March",
+  image: "/src/assets/kolkata.jpeg.jpg"
     },
     {
       name: "Sundarbans",
       description: "World's largest mangrove forest and home to the Royal Bengal Tiger",
       significance: "UNESCO World Heritage Site and unique ecosystem",
       visitTime: "2-3 days",
-      bestTime: "November to February"
+      bestTime: "November to February",
+  image: "/src/assets/Sundarbans.jpeg.jpg"
     },
     {
       name: "Darjeeling",
       description: "Famous hill station known for tea gardens and views of Mount Kanchenjunga",
       significance: "Queen of the Hills and UNESCO World Heritage Railway",
       visitTime: "2-3 days",
-      bestTime: "March to May, October to December"
+      bestTime: "March to May, October to December",
+  image: "/src/assets/darjeeling.jpeg.jpg"
     },
     {
       name: "Victoria Memorial",
       description: "Magnificent marble monument dedicated to Queen Victoria, showcasing British colonial architecture",
       significance: "Symbol of British colonial era and architectural masterpiece",
       visitTime: "2-3 hours",
-      bestTime: "October to March"
+      bestTime: "October to March",
+  image: "/src/assets/Victoria memorial.jpeg.jpg"
     }
   ];
 
@@ -82,7 +86,7 @@ const WestBengal = () => {
               </div>
               <div className="relative">
                 <img 
-                  src={culturalArt} 
+                  src="/src/assets/west bengal.png"
                   alt="West Bengal Heritage"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />
@@ -115,11 +119,14 @@ const WestBengal = () => {
                         </h3>
                         <Camera className="h-6 w-6 text-primary" />
                       </div>
-                      
+                      <img
+                        src={place.image}
+                        alt={place.name + ' image'}
+                        className="w-full h-40 object-cover rounded-xl mb-4"
+                      />
                       <p className="text-muted-foreground leading-relaxed">
                         {place.description}
                       </p>
-                      
                       <div className="bg-muted/30 p-4 rounded-lg space-y-3">
                         <div>
                           <span className="font-semibold text-primary">Significance: </span>

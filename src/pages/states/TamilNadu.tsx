@@ -13,21 +13,24 @@ const TamilNadu = () => {
       description: "Historic Hindu temple dedicated to Meenakshi Devi and Lord Sundareshwara, featuring intricate Dravidian architecture",
       significance: "One of the most important temples in South India, architectural marvel",
       visitTime: "2-3 hours",
-      bestTime: "October to March"
+      bestTime: "October to March",
+  image: "/src/assets/Meenakshi temple.jpeg.jpg"
     },
     {
       name: "Marina Beach (Chennai)",
       description: "World's second-longest urban beach, stretching along the Bay of Bengal coastline",
       significance: "Cultural hub and iconic landmark of Chennai",
       visitTime: "2-3 hours",
-      bestTime: "Evening for sunset views"
+      bestTime: "Evening for sunset views",
+  image: "/src/assets/marina beach.jpeg.jpg"
     },
     {
       name: "Ooty",
       description: "Popular hill station in the Nilgiri Hills, known for tea gardens and colonial charm",
       significance: "Queen of Hill Stations and UNESCO Biosphere Reserve",
       visitTime: "2-3 days",
-      bestTime: "April to June, September to November"
+      bestTime: "April to June, September to November",
+  image: "/src/assets/ooty.jpeg.jpg"
     }
   ];
 
@@ -75,7 +78,7 @@ const TamilNadu = () => {
               </div>
               <div className="relative">
                 <img 
-                  src={ancientTemple} 
+                  src="/src/assets/tamil nadu.png"
                   alt="Tamil Nadu Heritage"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />
@@ -108,11 +111,14 @@ const TamilNadu = () => {
                         </h3>
                         <Camera className="h-6 w-6 text-primary" />
                       </div>
-                      
+                      <img
+                        src={place.image}
+                        alt={place.name + ' image'}
+                        className="w-full h-40 object-cover rounded-xl mb-4"
+                      />
                       <p className="text-muted-foreground leading-relaxed">
                         {place.description}
                       </p>
-                      
                       <div className="bg-muted/30 p-4 rounded-lg space-y-3">
                         <div>
                           <span className="font-semibold text-primary">Significance: </span>

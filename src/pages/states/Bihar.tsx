@@ -13,14 +13,16 @@ const Bihar = () => {
       description: "Sacred site where Buddha attained enlightenment, featuring the ancient Mahabodhi Temple",
       significance: "UNESCO World Heritage Site and holiest Buddhist pilgrimage site",
       visitTime: "1-2 days",
-      bestTime: "October to March"
+      bestTime: "October to March",
+  image: "/src/assets/Bodh Gaya.png"
     },
     {
       name: "Nalanda University Ruins",
       description: "Ruins of the ancient world's first residential university, center of Buddhist learning",
       significance: "UNESCO World Heritage Site and ancient center of knowledge",
       visitTime: "Half day",
-      bestTime: "October to March"
+      bestTime: "October to March",
+  image: "/src/assets/Nalanda University Ruins.png"
     }
   ];
 
@@ -68,7 +70,7 @@ const Bihar = () => {
               </div>
               <div className="relative">
                 <img 
-                  src={culturalArt} 
+                  src="/src/assets/bihar.png"
                   alt="Bihar Heritage"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />
@@ -101,11 +103,14 @@ const Bihar = () => {
                         </h3>
                         <Camera className="h-6 w-6 text-primary" />
                       </div>
-                      
+                      <img
+                        src={place.image}
+                        alt={place.name + ' image'}
+                        className="w-full h-40 object-cover rounded-xl mb-4"
+                      />
                       <p className="text-muted-foreground leading-relaxed">
                         {place.description}
                       </p>
-                      
                       <div className="bg-muted/30 p-4 rounded-lg space-y-3">
                         <div>
                           <span className="font-semibold text-primary">Global Significance: </span>

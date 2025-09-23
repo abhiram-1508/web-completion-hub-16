@@ -13,21 +13,24 @@ const Kerala = () => {
       description: "Network of interconnected canals, rivers, and lakes offering unique houseboat experiences",
       significance: "Venice of the East and iconic Kerala tourism experience",
       visitTime: "1-2 days",
-      bestTime: "October to March"
+      bestTime: "October to March",
+      image: "/src/assets/backwaters.jpeg.jpg"
     },
     {
       name: "Munnar Tea Gardens",
       description: "Picturesque hill station with rolling tea plantations and misty mountains",
       significance: "Tea capital of South India and biodiversity hotspot",
       visitTime: "2-3 days",
-      bestTime: "September to March"
+      bestTime: "September to March",
+      image: "/src/assets/Munnar tea gardens.jpeg.jpg"
     },
     {
       name: "Kochi",
       description: "Historic port city blending Portuguese, Dutch, and British colonial influences",
       significance: "Queen of Arabian Sea and spice trade heritage",
       visitTime: "2 days",
-      bestTime: "October to February"
+      bestTime: "October to February",
+      image: "/src/assets/kochi.jpeg.jpg"
     }
   ];
 
@@ -75,7 +78,7 @@ const Kerala = () => {
               </div>
               <div className="relative">
                 <img 
-                  src={culturalArt} 
+                  src="/src/assets/kerala.png"
                   alt="Kerala Heritage"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />
@@ -108,11 +111,14 @@ const Kerala = () => {
                         </h3>
                         <Camera className="h-6 w-6 text-primary" />
                       </div>
-                      
+                      <img
+                        src={place.image}
+                        alt={place.name + ' image'}
+                        className="w-full h-40 object-cover rounded-xl mb-4"
+                      />
                       <p className="text-muted-foreground leading-relaxed">
                         {place.description}
                       </p>
-                      
                       <div className="bg-muted/30 p-4 rounded-lg space-y-3">
                         <div>
                           <span className="font-semibold text-primary">Significance: </span>

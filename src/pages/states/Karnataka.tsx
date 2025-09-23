@@ -4,12 +4,16 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
-import ancientTemple from "@/assets/ancient-temple-art.jpg";
+// import karnatakaImg from "@/assets/Karnataka.png";
+import bangaloreImg from "@/assets/Bangalore.jpeg.jpg";
+import mysorePalaceImg from "@/assets/mysore palace.jpeg.jpg";
+import hampiRuinsImg from "@/assets/hampi ruins.jpeg.jpg";
 
 const Karnataka = () => {
   const famousPlaces = [
     {
       name: "Bangalore",
+      image: bangaloreImg,
       description: "Silicon Valley of India, known for IT industry, gardens, and vibrant cultural scene",
       significance: "Technology hub and Garden City of India",
       visitTime: "2-3 days",
@@ -17,6 +21,7 @@ const Karnataka = () => {
     },
     {
       name: "Mysore Palace",
+      image: mysorePalaceImg,
       description: "Magnificent palace showcasing Indo-Saracenic architecture and royal heritage",
       significance: "Former royal residence and architectural marvel",
       visitTime: "2-3 hours",
@@ -24,6 +29,7 @@ const Karnataka = () => {
     },
     {
       name: "Hampi Ruins",
+      image: hampiRuinsImg,
       description: "UNESCO World Heritage Site with ruins of the Vijayanagara Empire",
       significance: "Medieval Hindu kingdom capital and archaeological wonder",
       visitTime: "2-3 days",
@@ -75,7 +81,7 @@ const Karnataka = () => {
               </div>
               <div className="relative">
                 <img 
-                  src={ancientTemple} 
+                  src="/src/assets/Karnataka.png"
                   alt="Karnataka Heritage"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />
@@ -108,11 +114,14 @@ const Karnataka = () => {
                         </h3>
                         <Camera className="h-6 w-6 text-primary" />
                       </div>
-                      
+                      <img
+                        src={place.image}
+                        alt={place.name + ' image'}
+                        className="w-full h-40 object-cover rounded-xl mb-4"
+                      />
                       <p className="text-muted-foreground leading-relaxed">
                         {place.description}
                       </p>
-                      
                       <div className="bg-muted/30 p-4 rounded-lg space-y-3">
                         <div>
                           <span className="font-semibold text-primary">Significance: </span>

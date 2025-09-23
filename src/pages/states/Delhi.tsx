@@ -13,28 +13,32 @@ const Delhi = () => {
       description: "A historic fortress that served as the main residence of the Mughal Emperors",
       significance: "UNESCO World Heritage Site and symbol of India's rich Mughal heritage",
       visitTime: "2-3 hours",
-      bestTime: "October to March"
+      bestTime: "October to March",
+  image: "/src/assets/red fort.png"
     },
     {
       name: "India Gate",
       description: "War memorial dedicated to soldiers who died in World War I",
       significance: "National monument and gathering place for cultural celebrations",
       visitTime: "1-2 hours",
-      bestTime: "Evening for beautiful lighting"
+      bestTime: "Evening for beautiful lighting",
+  image: "/src/assets/india gate.png"
     },
     {
       name: "Qutub Minar",
       description: "Tallest brick minaret in the world, showcasing Indo-Islamic architecture",
       significance: "UNESCO World Heritage Site representing Delhi Sultanate era",
       visitTime: "2 hours",
-      bestTime: "Morning or late afternoon"
+      bestTime: "Morning or late afternoon",
+  image: "/src/assets/qutub minar.png"
     },
     {
       name: "Lotus Temple",
       description: "Bahá'í House of Worship known for its lotus-shaped architecture",
       significance: "Modern architectural marvel promoting unity and peace",
       visitTime: "1-2 hours",
-      bestTime: "Sunset for golden lighting"
+      bestTime: "Sunset for golden lighting",
+  image: "/src/assets/lotus temple.png"
     }
   ];
 
@@ -82,7 +86,7 @@ const Delhi = () => {
               </div>
               <div className="relative">
                 <img 
-                  src={culturalArt} 
+                  src="/src/assets/delhi.png"
                   alt="Delhi Heritage"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />
@@ -115,11 +119,14 @@ const Delhi = () => {
                         </h3>
                         <Camera className="h-6 w-6 text-primary" />
                       </div>
-                      
+                      <img
+                        src={place.image}
+                        alt={place.name + ' image'}
+                        className="w-full h-40 object-cover rounded-xl mb-4"
+                      />
                       <p className="text-muted-foreground leading-relaxed">
                         {place.description}
                       </p>
-                      
                       <div className="bg-muted/30 p-4 rounded-lg space-y-3">
                         <div>
                           <span className="font-semibold text-primary">Significance: </span>

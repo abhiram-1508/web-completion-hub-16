@@ -13,28 +13,32 @@ const Rajasthan = () => {
       description: "Pink City with magnificent Amber Fort showcasing Rajput architecture",
       significance: "UNESCO World Heritage Site and royal Rajput heritage",
       visitTime: "2-3 days",
-      bestTime: "October to March"
+      bestTime: "October to March",
+  image: "/src/assets/Jaipur (Amber Fort).png"
     },
     {
       name: "Udaipur",
       description: "City of Lakes known for beautiful palaces and romantic ambiance",
       significance: "Venice of the East and Mewar dynasty heritage",
       visitTime: "2-3 days",
-      bestTime: "September to March"
+      bestTime: "September to March",
+  image: "/src/assets/Udaipur.png"
     },
     {
       name: "Jaisalmer Fort",
       description: "Golden sandstone fort rising from the Thar Desert",
       significance: "Living fort and UNESCO World Heritage Site",
       visitTime: "2 days",
-      bestTime: "October to February"
+      bestTime: "October to February",
+  image: "/src/assets/Jaisalmer Fort.png"
     },
     {
       name: "Ranthambore National Park",
       description: "Former royal hunting ground, now famous tiger reserve",
       significance: "Tiger conservation and wildlife sanctuary",
       visitTime: "2-3 days",
-      bestTime: "October to April"
+      bestTime: "October to April",
+  image: "/src/assets/Ranthambore National Park.png"
     }
   ];
 
@@ -66,7 +70,7 @@ const Rajasthan = () => {
               </div>
               <div className="relative">
                 <img 
-                  src={ancientTemple} 
+                  src="/src/assets/rajasthan.png"
                   alt="Rajasthan Heritage"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />
@@ -79,13 +83,25 @@ const Rajasthan = () => {
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-8">
               {famousPlaces.map((place, index) => (
-                <Card key={index} className="group hover:scale-105 transition-all duration-300">
+                <Card key={index} className="group hover:scale-105 transition-all duration-300 border-0 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm">
                   <CardContent className="p-8">
-                    <h3 className="text-2xl font-bold mb-4">{place.name}</h3>
-                    <p className="text-muted-foreground mb-4">{place.description}</p>
-                    <div className="bg-muted/30 p-4 rounded-lg">
-                      <span className="font-semibold text-primary">Significance: </span>
-                      <span>{place.significance}</span>
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">{place.name}</h3>
+                        <Camera className="h-6 w-6 text-primary" />
+                      </div>
+                      <img
+                        src={place.image}
+                        alt={place.name + ' image'}
+                        className="w-full h-40 object-cover rounded-xl mb-4"
+                      />
+                      <p className="text-muted-foreground leading-relaxed">{place.description}</p>
+                      <div className="bg-muted/30 p-4 rounded-lg space-y-3">
+                        <div>
+                          <span className="font-semibold text-primary">Significance: </span>
+                          <span className="text-foreground/80">{place.significance}</span>
+                        </div>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>

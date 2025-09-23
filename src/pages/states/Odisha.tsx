@@ -13,21 +13,24 @@ const Odisha = () => {
       description: "13th-century temple dedicated to Sun God, famous for its chariot-shaped architecture",
       significance: "UNESCO World Heritage Site and architectural marvel",
       visitTime: "2-3 hours",
-      bestTime: "October to March"
+      bestTime: "October to March",
+  image: "/src/assets/konark sun temple.png"
     },
     {
       name: "Puri Beach",
       description: "Sacred beach town home to the famous Jagannath Temple and annual Rath Yatra",
       significance: "One of the four holy dhams in Hinduism",
       visitTime: "1-2 days",
-      bestTime: "October to February"
+      bestTime: "October to February",
+  image: "/src/assets/puri beach.png"
     },
     {
       name: "Chilika Lake",
       description: "Asia's largest brackish water lagoon, famous for migratory birds and biodiversity",
       significance: "Ramsar Wetland Site and biodiversity hotspot",
       visitTime: "Full day",
-      bestTime: "November to February for bird watching"
+      bestTime: "November to February for bird watching",
+  image: "/src/assets/chilika lake.png"
     }
   ];
 
@@ -75,7 +78,7 @@ const Odisha = () => {
               </div>
               <div className="relative">
                 <img 
-                  src={ancientTemple} 
+                  src="/src/assets/odisha.png"
                   alt="Odisha Heritage"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />
@@ -108,11 +111,14 @@ const Odisha = () => {
                         </h3>
                         <Camera className="h-6 w-6 text-primary" />
                       </div>
-                      
+                      <img
+                        src={place.image}
+                        alt={place.name + ' image'}
+                        className="w-full h-40 object-cover rounded-xl mb-4"
+                      />
                       <p className="text-muted-foreground leading-relaxed">
                         {place.description}
                       </p>
-                      
                       <div className="bg-muted/30 p-4 rounded-lg space-y-3">
                         <div>
                           <span className="font-semibold text-primary">Significance: </span>
