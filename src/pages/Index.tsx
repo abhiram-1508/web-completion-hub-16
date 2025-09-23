@@ -7,16 +7,13 @@ import { Link } from "react-router-dom";
 
 const Index = () => {
   const highlights = [
-    {
-      icon: Smartphone,
-<<<<<<< HEAD
-      title: "AR Virtual Tours",
-=======
-      title: "AR/VR Virtual Tours",
->>>>>>> 63891759c5c0ec28bf1d45e341bf8eb3894b48a6
-      description: "Explore monuments and museums in immersive detail",
-      link: "/features"
-    },
+   {
+  icon: Smartphone,
+  title: "AR/VR Virtual Tours",
+  description: "Explore monuments and museums in immersive detail",
+  link: "/features"
+},
+
     {
       icon: BookOpen,
       title: "Multilingual Stories",
