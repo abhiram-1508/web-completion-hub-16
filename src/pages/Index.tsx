@@ -48,11 +48,9 @@ const Index = () => {
                 Discover Cultural Heritage Like <span className="gradient-text">Never Before</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-<<<<<<< HEAD
+
                 Revolutionary platform combining AR, AI, and gamification for immersive cultural experiences
-=======
-                Revolutionary platform combining AR/VR, AI, and gamification for immersive cultural experiences
->>>>>>> 63891759c5c0ec28bf1d45e341bf8eb3894b48a6
+                Revolutionary platform combining AR, AI, and gamification for immersive cultural experiences
               </p>
             </div>
 
