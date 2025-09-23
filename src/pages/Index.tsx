@@ -53,21 +53,25 @@ const Index = () => {
 
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-              {highlights.map((highlight, index) => (
-                <Link key={index} to={highlight.link} className="group">
-                  <div className="feature-card text-center">
-                    <div className="inline-flex p-4 bg-primary/10 rounded-full mb-6 group-hover:bg-primary/20 transition-colors">
-                      <highlight.icon className="h-8 w-8 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                      {highlight.title}
-                    </h3>
-                    <p className="text-muted-foreground">{highlight.description}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
+           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+  {highlights.map((highlight, index) => {
+    const Icon = highlight.icon; // assign component to capitalized variable
+    return (
+      <Link key={index} to={highlight.link} className="group">
+        <div className="feature-card text-center">
+          <div className="inline-flex p-4 bg-primary/10 rounded-full mb-6 group-hover:bg-primary/20 transition-colors">
+            <Icon className="h-8 w-8 text-primary" />
+          </div>
+          <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+            {highlight.title}
+          </h3>
+          <p className="text-muted-foreground">{highlight.description}</p>
+        </div>
+      </Link>
+    );
+  })}
+</div>
+
 
             <div className="text-center">
               <Link to="/features">
