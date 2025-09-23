@@ -26,11 +26,8 @@ const Footer = () => {
             </Link>
             
             <p className="text-muted-foreground max-w-md">
-<<<<<<< HEAD
               Revolutionizing cultural heritage experience through AR technology, 
-=======
               Revolutionizing cultural heritage experience through AR/VR technology, 
->>>>>>> 63891759c5c0ec28bf1d45e341bf8eb3894b48a6
               multilingual storytelling, and interactive learning for global audiences.
             </p>
             
