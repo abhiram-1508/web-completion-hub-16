@@ -13,11 +13,7 @@ const Hero = () => {
               <h1 className="text-5xl md:text-7xl font-bold leading-tight">
                 Experience
                 <span className="gradient-text block">Cultural Heritage</span>
-<<<<<<< HEAD
                 Through AR
-=======
-                Through AR/VR
->>>>>>> 63891759c5c0ec28bf1d45e341bf8eb3894b48a6
               </h1>
               <p className="text-xl text-muted-foreground max-w-lg">
                 Explore monuments, festivals, and museums interactively from anywhere. 
@@ -60,11 +56,8 @@ const Hero = () => {
             <div className="relative rounded-2xl overflow-hidden">
               <img 
                 src={heroImage} 
-<<<<<<< HEAD
+
                 alt="AR Cultural Heritage Experience" 
-=======
-                alt="AR/VR Cultural Heritage Experience" 
->>>>>>> 63891759c5c0ec28bf1d45e341bf8eb3894b48a6
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
