@@ -27,7 +27,6 @@ const Footer = () => {
             
             <p className="text-muted-foreground max-w-md">
               Revolutionizing cultural heritage experience through AR technology, 
-              Revolutionizing cultural heritage experience through AR/VR technology, 
               multilingual storytelling, and interactive learning for global audiences.
             </p>
             
