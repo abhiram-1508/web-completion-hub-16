@@ -6,6 +6,18 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import culturalArt from "@/assets/cultural-heritage-art.jpg";
 import ancientTemple from "@/assets/ancient-temple-art.jpg";
+import delhiImg from "@/assets/Delhi.jpeg.jpg";
+import uttarPradeshImg from "@/assets/Tajmahal.jpeg.jpg";
+import himachalPradeshImg from "@/assets/shimla.jpeg.jpg";
+import tamilNaduImg from "@/assets/Meenakshi temple.jpeg.jpg";
+import keralaImg from "@/assets/backwaters.jpeg.jpg";
+import karnatakaImg from "@/assets/Bangalore.jpeg.jpg";
+import westBengalImg from "@/assets/kolkata.jpeg.jpg";
+import odishaImg from "@/assets/konark sun temple.jpeg.jpg";
+import biharImg from "@/assets/Bodhgaya.jpeg.jpg";
+import rajasthanImg from "@/assets/Jaipur.jpeg.jpg";
+import maharashtraImg from "@/assets/mumbai.jpeg.jpg";
+import gujaratImg from "@/assets/gir national park.jpeg.jpg";
 
 const Explore = () => {
   const regions = [
