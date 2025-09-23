@@ -28,10 +28,12 @@ const Hero = () => {
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <Button variant="outline" size="lg" className="group">
-                <Play className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
-                Watch Demo
-              </Button>
+              <Link to="/explore">
+                <Button variant="outline" size="lg" className="group">
+                  <ArrowRight className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  Explore States
+                </Button>
+              </Link>
             </div>
             
             <div className="flex items-center space-x-8 text-sm text-muted-foreground">

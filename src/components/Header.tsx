@@ -8,7 +8,7 @@ const Header = () => {
 
   const navigation = [
     { name: "Features", href: "/features" },
-    { name: "Innovation", href: "/innovation" },
+    { name: "Explore", href: "/explore" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" }
   ];
@@ -22,7 +22,7 @@ const Header = () => {
             <div className="w-8 h-8 bg-gradient-to-r from-cultural-teal to-cultural-blue rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">CH</span>
             </div>
-            <span className="text-xl font-bold">CultureVerse</span>
+            <span className="text-xl font-bold">Vibrant Past</span>
           </Link>
 
           {/* Desktop Navigation */}

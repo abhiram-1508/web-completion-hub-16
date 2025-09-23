@@ -220,10 +220,10 @@ const Contact = () => {
                 </h2>
                 <p className="text-xl text-white/90 max-w-2xl mx-auto">
                   Join educational institutions, museums, and cultural organizations 
-                  already transforming heritage education with CultureVerse.
+                  already transforming heritage education with Vibrant Past.
                 </p>
                 <Button size="lg" variant="secondary" className="bg-white text-cultural-blue hover:bg-white/90">
-                  Schedule a Demo
+                  Start Exploring
                 </Button>
               </div>
             </div>

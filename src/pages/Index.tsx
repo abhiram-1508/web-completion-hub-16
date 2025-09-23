@@ -29,7 +29,7 @@ const Index = () => {
       icon: Sparkles,
       title: "AI Innovation",
       description: "Personalized cultural journeys powered by AI",
-      link: "/innovation"
+      link: "/explore"
     }
   ];
 
