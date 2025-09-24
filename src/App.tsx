@@ -9,6 +9,7 @@ import Explore from "./pages/Explore";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import MultiLingualStory from "./pages/MultiLingualStory"; // Import the new page
 // State pages
 import Delhi from "./pages/states/Delhi";
 import UttarPradesh from "./pages/states/UttarPradesh";
@@ -20,6 +21,8 @@ import WestBengal from "./pages/states/WestBengal";
 import Odisha from "./pages/states/Odisha";
 import Bihar from "./pages/states/Bihar";
 import Rajasthan from "./pages/states/Rajasthan";
+import Gujarat from "./pages/states/Gujarat";
+import Maharastra from "./pages/states/Maharastra";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +38,7 @@ const App = () => (
           <Route path="/explore" element={<Explore />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/multi-lingual-story" element={<MultiLingualStory />} /> // Add the new route
           {/* State routes */}
           <Route path="/explore/delhi" element={<Delhi />} />
           <Route path="/explore/uttar-pradesh" element={<UttarPradesh />} />
@@ -46,6 +50,8 @@ const App = () => (
           <Route path="/explore/odisha" element={<Odisha />} />
           <Route path="/explore/bihar" element={<Bihar />} />
           <Route path="/explore/rajasthan" element={<Rajasthan />} />
+          <Route path="/explore/gujarat" element={<Gujarat />} />
+          <Route path="/explore/maharastra" element={<Maharastra />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

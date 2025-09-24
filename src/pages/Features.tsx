@@ -1,171 +1,107 @@
-import { Smartphone, BookOpen, Trophy, Globe, Zap, Users } from "lucide-react";
+import { useState } from "react";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import arToursImage from "@/assets/ar-tours.jpg";
-import storytellingImage from "@/assets/storytelling.jpg";
-import gamificationImage from "@/assets/gamification.jpg";
+import { Bot, User } from "lucide-react";
+
+const API_KEY = "AIzaSyDCk29ynsFOIsoTlkQkXZiF1OxsvXEeSfw";
+
+const genAI = new GoogleGenerativeAI(API_KEY);
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 const Features = () => {
-  const features = [
-    {
-      icon: Smartphone,
-      title: "AR Virtual Tours",
-      description: "Explore monuments, festivals, and museums interactively from anywhere in the world using cutting-edge augmented reality technology.",
-      title: "AR/VR Virtual Tours",
-      description: "Explore monuments, festivals, and museums interactively from anywhere in the world using cutting-edge augmented and virtual reality technology.",
-      image: arToursImage,
-      color: "cultural-teal",
-      details: [
-        "360° immersive monument exploration",
-        "Real-time interactive cultural information",
-        "Virtual museum walkthroughs",
-        "Festival and ceremony experiences"
-      ]
-    },
-    {
-      icon: BookOpen,
-      title: "Multilingual Storytelling",
-      description: "Experience folklore and cultural stories through interactive swipe cards in your preferred language, bringing ancient tales to life.",
-      image: storytellingImage,
-      color: "cultural-gold",
-      details: [
-        "Interactive story cards in 15+ languages",
-        "Audio narration by cultural experts",
-        "Traditional folklore and legends",
-        "Historical context and significance"
-      ]
-    },
-    {
-      icon: Trophy,
-      title: "Gamification Quizzes",
-      description: "Learn through engaging quizzes and earn rewards while discovering the rich tapestry of cultural heritage around the world.",
-      image: gamificationImage,
-      color: "cultural-purple",
-      details: [
-        "Progressive difficulty levels",
-        "Achievement badges and rewards",
-        "Leaderboards and competitions",
-        "Cultural knowledge certification"
-      ]
-    }
-  ];
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const benefits = [
-    {
-      icon: Users,
-      title: "Engaging for Youth",
-      description: "Makes culture fun and accessible for the younger generation through modern technology"
-    },
-    {
-      icon: Globe,
-      title: "Global Cultural Promotion",
-      description: "Promotes cultural heritage worldwide in multiple languages for global accessibility"
-    },
-    {
-      icon: Zap,
-      title: "Digital Preservation",
-      description: "Preserves heritage digitally for future generations using advanced documentation techniques"
+  const sendMessage = async () => {
+    if (!input.trim()) return;
+
+    const userMessage = { role: "user", text: input };
+    setMessages((prev) => [...prev, userMessage]);
+    setInput("");
+    setIsLoading(true);
+
+    try {
+      const result = await model.generateContent(input);
+      const response = await result.response;
+      const botMessage = { role: "bot", text: response.text() };
+      setMessages((prev) => [...prev, botMessage]);
+    } catch (error) {
+      console.error("Error generating content:", error);
+      const errorMessage = {
+        role: "bot",
+        text: "Sorry, I'm having trouble connecting. Please check your API key and try again.",
+      };
+      setMessages((prev) => [...prev, errorMessage]);
+    } finally {
+      setIsLoading(false);
     }
-  ];
+  };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="flex flex-col min-h-screen bg-background">
       <Header />
-      
-      <main className="pt-20">
-        {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-b from-background to-muted/30">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Platform <span className="gradient-text">Features</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-12">
+      <main className="flex-grow container mx-auto px-4 py-8">
+        <div className="max-w-3xl mx-auto">
+          <h1 className="text-4xl font-bold text-center mb-8">
+            Multi-lingual Story Generator
+          </h1>
 
-              Discover how our revolutionary platform combines AR, AI, and gamification 
-
-              Discover how our revolutionary platform combines AR/VR, AI, and gamification 
-
-              to create unprecedented cultural experiences
-            </p>
-          </div>
-        </section>
-
-        {/* Main Features */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="space-y-20">
-              {features.map((feature, index) => (
-                <div key={index} className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
-                  <div className={`space-y-6 ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                    <div className="flex items-center space-x-4">
-                      <div className={`p-3 bg-${feature.color}/20 rounded-lg`}>
-                        <feature.icon className={`h-8 w-8 text-${feature.color}`} />
-                      </div>
-                      <h2 className="text-3xl font-bold">{feature.title}</h2>
-                    </div>
-                    
-                    <p className="text-lg text-muted-foreground leading-relaxed">
-                      {feature.description}
-                    </p>
-                    
-                    <ul className="space-y-3">
-                      {feature.details.map((detail, detailIndex) => (
-                        <li key={detailIndex} className="flex items-center space-x-3">
-                          <div className={`w-2 h-2 bg-${feature.color} rounded-full`}></div>
-                          <span className="text-foreground/80">{detail}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    
-                    <Button className="mt-6">
-                      Learn More About This Feature
-                    </Button>
+          <div className="bg-card border rounded-lg shadow-lg h-[60vh] flex flex-col">
+            <div className="flex-grow p-4 space-y-4 overflow-y-auto">
+              {messages.map((msg, index) => (
+                <div
+                  key={index}
+                  className={`flex items-start gap-3 ${
+                    msg.role === "user" ? "justify-end" : ""
+                  }`}
+                >
+                  {msg.role === "bot" && (
+                    <Bot className="w-6 h-6 text-primary" />
+                  )}
+                  <div
+                    className={`p-3 rounded-lg max-w-[80%] ${
+                      msg.role === "user"
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-muted"
+                    }`}
+                  >
+                    <p className="text-sm whitespace-pre-wrap">{msg.text}</p>
                   </div>
-                  
-                  <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
-                    <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                      <img 
-                        src={feature.image} 
-                        alt={feature.title}
-                        className="w-full h-auto"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
-                    </div>
-                  </div>
+                  {msg.role === "user" && (
+                    <User className="w-6 h-6" />
+                  )}
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Benefits Section */}
-        <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                How It Addresses the <span className="gradient-text">Problem</span>
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Bridging the gap between tradition and technology for meaningful cultural engagement
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="text-center space-y-6 p-8 bg-card rounded-xl">
-                  <div className="inline-flex p-4 bg-primary/10 rounded-full">
-                    <benefit.icon className="h-8 w-8 text-primary" />
+              {isLoading && (
+                <div className="flex items-center gap-3">
+                  <Bot className="w-6 h-6 text-primary" />
+                  <div className="p-3 rounded-lg bg-muted">
+                    <p className="text-sm">Generating story...</p>
                   </div>
-                  <h3 className="text-xl font-semibold">{benefit.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
                 </div>
-              ))}
+              )}
+            </div>
+            <div className="p-4 border-t">
+              <div className="flex gap-2">
+                <Input
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  placeholder="Tell me a story about..."
+                  onKeyPress={(e) => e.key === "Enter" && sendMessage()}
+                  disabled={isLoading}
+                />
+                <Button onClick={sendMessage} disabled={isLoading}>
+                  Send
+                </Button>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
       </main>
-      
       <Footer />
     </div>
   );
