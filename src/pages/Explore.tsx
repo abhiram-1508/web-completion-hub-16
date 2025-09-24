@@ -1,0 +1,251 @@
+import { MapPin, Mountain, Waves, Building2, TreePine } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Link } from "react-router-dom";
+import culturalArt from "@/assets/cultural-heritage-art.jpg";
+import ancientTemple from "@/assets/ancient-temple-art.jpg";
+
+const Explore = () => {
+  const regions = [
+    {
+      name: "North India",
+      icon: Mountain,
+      description: "Discover the majestic heritage of Northern India",
+      gradient: "from-cultural-teal to-cultural-blue",
+      image: ancientTemple,
+      states: [
+        {
+          name: "Delhi",
+          places: ["Red Fort", "India Gate", "Qutub Minar", "Lotus Temple"],
+          route: "/explore/delhi"
+        },
+        {
+          name: "Uttar Pradesh",
+          places: ["Taj Mahal (Agra)", "Varanasi Ghats", "Fatehpur Sikri"],
+          route: "/explore/uttar-pradesh"
+        },
+        {
+          name: "Himachal Pradesh",
+          places: ["Shimla", "Manali", "Rohtang Pass", "Dharamshala"],
+          route: "/explore/himachal-pradesh"
+        }
+      ]
+    },
+    {
+      name: "South India",
+      icon: TreePine,
+      description: "Explore the rich cultural tapestry of Southern India",
+      gradient: "from-cultural-gold to-cultural-amber",
+      image: culturalArt,
+      states: [
+        {
+          name: "Tamil Nadu",
+          places: ["Meenakshi Temple (Madurai)", "Marina Beach (Chennai)", "Ooty"],
+          route: "/explore/tamil-nadu"
+        },
+        {
+          name: "Kerala",
+          places: ["Backwaters (Alleppey)", "Munnar Tea Gardens", "Kochi"],
+          route: "/explore/kerala"
+        },
+        {
+          name: "Karnataka",
+          places: ["Bangalore", "Mysore Palace", "Hampi Ruins"],
+          route: "/explore/karnataka"
+        }
+      ]
+    },
+    {
+      name: "East India",
+      icon: Waves,
+      description: "Experience the cultural heritage of Eastern India",
+      gradient: "from-cultural-purple to-cultural-teal",
+      image: culturalArt,
+      states: [
+        {
+          name: "West Bengal",
+          places: ["Kolkata", "Sundarbans", "Darjeeling", "Victoria Memorial"],
+          route: "/explore/west-bengal"
+        },
+        {
+          name: "Odisha",
+          places: ["Konark Sun Temple", "Puri Beach", "Chilika Lake"],
+          route: "/explore/odisha"
+        },
+        {
+          name: "Bihar",
+          places: ["Bodh Gaya (Mahabodhi Temple)", "Nalanda University ruins"],
+          route: "/explore/bihar"
+        }
+      ]
+    },
+    {
+      name: "West India",
+      icon: Building2,
+      description: "Journey through the vibrant heritage of Western India",
+      gradient: "from-cultural-blue to-cultural-purple",
+      image: ancientTemple,
+      states: [
+        {
+          name: "Rajasthan",
+          places: ["Jaipur (Amber Fort)", "Udaipur", "Jaisalmer Fort", "Ranthambore National Park"],
+          route: "/explore/rajasthan"
+        },
+        {
+          name: "Maharashtra",
+          places: ["Mumbai (Gateway of India, Marine Drive)", "Ajanta and Ellora Caves", "Lonavala"],
+          route: "/explore/maharashtra"
+        },
+        {
+          name: "Gujarat",
+          places: ["Gir National Park (Asiatic Lions)", "Rann of Kutch", "Somnath Temple"],
+          route: "/explore/gujarat"
+        }
+      ]
+    }
+  ];
+
+  // Move stateImages here, outside JSX
+  const stateImages = {
+    "Delhi": "/src/assets/delhi.png",
+    "Uttar Pradesh": "/src/assets/uttar pradesh.png",
+    "Himachal Pradesh": "/src/assets/himachal pradesh.png",
+    "Tamil Nadu": "/src/assets/tamil nadu.png",
+    "Kerala": "/src/assets/kerala.png",
+    "Karnataka": "/src/assets/Karnataka.png",
+    "West Bengal": "/src/assets/west bengal.png",
+    "Odisha": "/src/assets/odisha.png",
+    "Bihar": "/src/assets/bihar.png",
+    "Rajasthan": "/src/assets/rajasthan.png",
+    "Maharashtra": "/src/assets/maharastra.png",
+    "Gujarat": "/src/assets/gujarat.png"
+  };
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+
+      <main className="pt-20">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 mb-20">
+            {regions.map((region, index) => (
+              <Card
+                key={index}
+                className="group hover:scale-105 transition-all duration-300 border-0 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm overflow-hidden"
+              >
+                <CardContent className="p-0">
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={stateImages[region.states[0].name]}
+                      alt={`${region.name} heritage`}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-r ${region.gradient} opacity-80`}
+                    ></div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center text-white">
+                        <region.icon className="h-12 w-12 mx-auto mb-4" />
+                        <h3 className="text-2xl font-bold">{region.name}</h3>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="p-8 space-y-4">
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
+                      {region.description}
+                    </p>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      {region.states.map((state, stateIndex) => {
+                        const imgSrc = stateImages[state.name] || "/src/assets/ancient-temple-art.jpg";
+                        return (
+                          <div
+                            key={stateIndex}
+                            className="rounded-xl shadow-lg bg-card/80 border border-muted/40 overflow-hidden flex flex-col hover:scale-105 hover:shadow-2xl transition-transform duration-300"
+                          >
+                            <div className="relative h-32 w-full overflow-hidden">
+                              <img
+                                src={imgSrc}
+                                alt={`${state.name} image`}
+                                className="w-full h-full object-cover transition-transform duration-500"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                              <h4 className="absolute bottom-2 left-4 text-lg font-bold text-white drop-shadow flex items-center">
+                                <MapPin className="h-5 w-5 mr-2 text-primary" />
+                                {state.name}
+                              </h4>
+                            </div>
+                            <div className="p-4 flex-1 flex flex-col justify-between">
+                              <p className="text-sm text-muted-foreground mb-4">
+                                {state.places.join(" • ")}
+                              </p>
+                              <div className="mt-auto">
+                                <Link to={state.route}>
+                                  <Button variant="outline" size="sm" className="w-full">
+                                    Explore
+                                  </Button>
+                                </Link>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Cultural Impact */}
+        <section className="py-20 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="bg-gradient-to-r from-cultural-teal via-cultural-blue to-cultural-purple rounded-3xl p-12 md:p-20 text-center text-white relative overflow-hidden">
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 left-0 w-64 h-64 bg-white/20 rounded-full -translate-x-32 -translate-y-32"></div>
+                <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full translate-x-48 translate-y-48"></div>
+              </div>
+
+              <div className="relative z-10 space-y-6">
+                <h2 className="text-4xl md:text-5xl font-bold">
+                  India's Cultural Diversity
+                </h2>
+                <p className="text-xl text-white/90 max-w-2xl mx-auto">
+                  From ancient temples to modern cities, experience the incredible journey
+                  through India's rich heritage and vibrant traditions.
+                </p>
+
+                <div className="grid md:grid-cols-4 gap-8 pt-8">
+                  <div>
+                    <div className="text-3xl font-bold mb-2">12</div>
+                    <div className="text-white/80">States to Explore</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold mb-2">40+</div>
+                    <div className="text-white/80">Famous Places</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold mb-2">4</div>
+                    <div className="text-white/80">Major Regions</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold mb-2">1000+</div>
+                    <div className="text-white/80">Years of Heritage</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Explore;

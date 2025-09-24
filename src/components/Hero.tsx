@@ -1,0 +1,74 @@
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import Carousel3D from "@/components/Carousel3D";
+
+const Hero = () => {
+  return (
+    <section className="hero-section min-h-screen flex items-center justify-center relative bg-gradient-to-b from-gray-900 via-black to-black">
+      <div className="container mx-auto px-4 py-20 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+                Experience
+                <span className="gradient-text block">Cultural Heritage</span>
+                Through AR
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-lg">
+                Explore monuments, festivals, and museums interactively from anywhere. 
+                Immerse yourself in multilingual storytelling and gamified cultural experiences.
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link to="/features">
+                <Button size="lg" className="group">
+                  Explore Features
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              <Link to="/explore">
+                <Button variant="outline" size="lg" className="group">
+                  <ArrowRight className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  Explore States
+                </Button>
+              </Link>
+            </div>
+            
+            <div className="flex items-center space-x-8 text-sm text-muted-foreground">
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-cultural-teal rounded-full"></div>
+                <span>Web Platform</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-cultural-gold rounded-full"></div>
+                <span>Multilingual</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-cultural-purple rounded-full"></div>
+                <span>Interactive Experience</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="relative">
+            <div className="relative z-20">
+              <Carousel3D />
+            </div>
+            
+            {/* Floating elements with darker theme */}
+            <div className="absolute -top-4 -right-4 w-20 h-20 bg-cultural-gold/10 rounded-full blur-xl z-10"></div>
+            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-cultural-teal/10 rounded-full blur-xl z-10"></div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Animated background elements - subtle on dark background */}
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-cultural-teal/3 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-cultural-gold/3 rounded-full blur-3xl animate-pulse delay-1000"></div>
+    </section>
+  );
+};
+
+export default Hero;
