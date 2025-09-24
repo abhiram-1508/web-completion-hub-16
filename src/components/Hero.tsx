@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImage from "@/assets/hero-image.jpg";
+import Carousel3D from "@/components/Carousel3D";
 
 const Hero = () => {
   return (
-    <section className="hero-section min-h-screen flex items-center justify-center relative">
+    <section className="hero-section min-h-screen flex items-center justify-center relative bg-gradient-to-b from-gray-900 via-black to-black">
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
@@ -53,26 +53,20 @@ const Hero = () => {
           </div>
           
           <div className="relative">
-            <div className="relative rounded-2xl overflow-hidden">
-              <img 
-                src={heroImage} 
-
-                alt="AR Cultural Heritage Experience" 
-                className="w-full h-auto rounded-2xl shadow-2xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
+            <div className="relative z-20">
+              <Carousel3D />
             </div>
             
-            {/* Floating elements */}
-            <div className="absolute -top-4 -right-4 w-20 h-20 bg-cultural-gold/20 rounded-full blur-xl"></div>
-            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-cultural-teal/20 rounded-full blur-xl"></div>
+            {/* Floating elements with darker theme */}
+            <div className="absolute -top-4 -right-4 w-20 h-20 bg-cultural-gold/10 rounded-full blur-xl z-10"></div>
+            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-cultural-teal/10 rounded-full blur-xl z-10"></div>
           </div>
         </div>
       </div>
       
-      {/* Animated background elements */}
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-cultural-teal/5 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-cultural-gold/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      {/* Animated background elements - subtle on dark background */}
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-cultural-teal/3 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-cultural-gold/3 rounded-full blur-3xl animate-pulse delay-1000"></div>
     </section>
   );
 };

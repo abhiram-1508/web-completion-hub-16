@@ -1,0 +1,196 @@
+/* 3D Carousel Styles - Enhanced for dramatic effect */
+
+.carousel3d-root {
+  position: relative;
+  width: 100%;
+  height: 340px; /* Reduced from 400px - 15% smaller */
+  background: transparent;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Ensure proper z-index layering */
+  z-index: 1;
+}
+
+.carousel {
+  --_item-width: 120px; /* Reduced from 140px - 14% smaller */
+  --_item-height: 150px; /* Reduced from 180px - 17% smaller */
+  --_perspective: 2500px;
+  --_radius: 425px; /* Reduced from 500px - 15% smaller */
+  --_duration: 60s;
+
+  position: relative;
+  width: 85%; /* Reduced from 100% - 15% smaller */
+  max-width: 1800px;
+  height: 230px; /* Reduced from 270px - 15% smaller */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: var(--_perspective);
+  perspective-origin: 50% 45%;
+  margin: 0 auto;
+}
+
+.carousel-item-wrapper {
+  --_num-elements: 19; /* overridden from inline style */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: carousel-rotate var(--_duration) linear infinite;
+}
+
+.carousel3d-root:hover .carousel-item-wrapper {
+  animation-play-state: paused;
+}
+
+@keyframes carousel-rotate {
+  from { 
+    transform: rotateX(-15deg) rotateY(0deg); 
+  }
+  to { 
+    transform: rotateX(-15deg) rotateY(360deg); 
+  }
+}
+
+.carousel-item {
+  --_index: 1; /* overridden */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--_item-width);
+  height: var(--_item-height);
+  transform-style: preserve-3d;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #0a0a0a;
+  will-change: transform;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  
+  /* Enhanced shadow for depth */
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+
+  /* Distribute around the circle with better spacing */
+  transform: 
+    translate(-50%, -50%)
+    rotateY(calc((var(--_index) - 1) * (360deg / var(--_num-elements))))
+    translateZ(var(--_radius));
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Ensure images are properly loaded and visible */
+  background-color: #1a1a1a;
+  border-radius: 6px;
+  /* Black and white filter by default - more visible */
+  filter: grayscale(100%) contrast(1.2) brightness(1.0);
+}
+
+.carousel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 70%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  pointer-events: none;
+}
+
+/* Hover effect for individual items - more prominent */
+.carousel-item:hover {
+  box-shadow:
+    0 40px 80px -15px rgba(0, 0, 0, 0.9),
+    0 0 50px rgba(59, 130, 246, 0.4),
+    inset 0 0 30px rgba(59, 130, 246, 0.1);
+  transform:
+    translate(-50%, -50%)
+    rotateY(calc((var(--_index) - 1) * (360deg / var(--_num-elements))))
+    translateZ(calc(var(--_radius) + 80px))
+    scale(1.4);
+  z-index: 10;
+  /* Add interactive glow effect */
+  box-shadow:
+    0 40px 80px -15px rgba(0, 0, 0, 0.9),
+    0 0 60px rgba(59, 130, 246, 0.6),
+    0 0 100px rgba(59, 130, 246, 0.3),
+    inset 0 0 30px rgba(59, 130, 246, 0.1);
+}
+
+/* Hover effects for images */
+.carousel-item:hover .carousel-image {
+  transform: scale(1.05);
+  filter: grayscale(0%) contrast(1.2) brightness(1.1) saturate(1.1);
+  /* Add subtle rotation for extra interactivity */
+  transform: scale(1.05) rotate(2deg);
+  animation: image-glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes image-glow {
+  from {
+    filter: grayscale(0%) contrast(1.2) brightness(1.1) saturate(1.1);
+  }
+  to {
+    filter: grayscale(0%) contrast(1.3) brightness(1.2) saturate(1.2);
+  }
+}
+
+/* Ground reflection effect - darker and more prominent */
+.carousel-ground {
+  position: absolute;
+  bottom: -100px;
+  left: 50%;
+  width: 120%;
+  height: 300px;
+  transform: translateX(-50%) rotateX(90deg) translateZ(-300px);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.3) 30%,
+    transparent 70%
+  );
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .carousel3d-root {
+    height: 255px; /* Reduced from 300px - 15% smaller */
+  }
+  .carousel {
+    --_item-width: 130px; /* Reduced from 150px - 13% smaller */
+    --_item-height: 170px; /* Reduced from 200px - 15% smaller */
+    --_radius: 340px; /* Reduced from 400px - 15% smaller */
+    width: 120%;
+    height: 187px; /* Reduced from 220px - 15% smaller */
+  }
+}
+
+@media (max-width: 640px) {
+  .carousel3d-root {
+    height: 221px; /* Reduced from 260px - 15% smaller */
+  }
+  .carousel {
+    --_item-width: 100px; /* Reduced from 120px - 17% smaller */
+    --_item-height: 130px; /* Reduced from 160px - 19% smaller */
+    --_radius: 255px; /* Reduced from 300px - 15% smaller */
+    --_perspective: 1500px;
+    width: 110%;
+    height: 145px; /* Reduced from 170px - 15% smaller */
+  }
+}
+

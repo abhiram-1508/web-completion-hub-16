@@ -39,6 +39,7 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
+          
         
         {/* Feature Highlights */}
         <section className="py-20 cultural-pattern">
